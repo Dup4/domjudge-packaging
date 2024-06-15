@@ -2,6 +2,7 @@ FROM ubuntu:24.04 AS domserver-build
 LABEL org.opencontainers.image.authors="DOMjudge team <team@domjudge.org>"
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Set up user
 RUN useradd -m domjudge
