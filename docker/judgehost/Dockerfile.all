@@ -1,4 +1,4 @@
-FROM debian:stable-slim AS build
+FROM ubuntu:noble AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -36,7 +36,7 @@ COPY ["judgehost/chroot-and-tar.sh", "/scripts/"]
 RUN /domjudge-src/build.sh \
 	&& /scripts/chroot-and-tar.sh
 
-FROM debian:stable
+FROM ubuntu:noble
 
 ENV DEBIAN_FRONTEND=noninteractive \
 	CONTAINER_TIMEZONE=Europe/Amsterdam \
