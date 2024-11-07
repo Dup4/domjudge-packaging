@@ -18,7 +18,6 @@ RUN apt-get update \
 	texlive-fonts-recommended texlive-lang-european latexmk tex-gyre \
 	libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev \
 	enscript lpr ca-certificates \
-    moreutils \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Use venv to install latest Sphinx. 6.1.0 or higher is required to build DOMjudge docs.
@@ -65,6 +64,7 @@ RUN apt-get update \
 	php-gmp php-xml php-mbstring php-ldap \
 	enscript lpr \
 	ca-certificates python3-yaml python3-requests \
+    moreutils \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Install composer
