@@ -52,6 +52,7 @@ RUN apt-get update \
 	nginx composer php-fpm php-zip php-bcmath \
 	php-ds php-gd php-mysql php-json php-intl php-gmp \
 	php-xml php-mbstring python3-yaml python3-requests enscript lpr \
+	moreutils file php-redis \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Check the UID and GID of the domjudge user are the same as in the previous build stage
