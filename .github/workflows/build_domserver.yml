@@ -12,6 +12,15 @@ on:
         description: "repo"
         required: true
         default: "DOMjudge/domjudge"
+      platforms:
+        description: "platforms"
+        required: true
+        default: "linux/amd64"
+        type: choice
+        options:
+          - linux/amd64
+          - linux/arm64
+          - linux/amd64,linux/arm64
       commit_id:
         description: "git commit id"
         required: false
@@ -21,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up QEMU
         id: qemu
@@ -63,7 +72,7 @@ jobs:
           bash ./docker/download.sh ${{ github.event.inputs.version }} ${{ github.event.inputs.repo }} ${{ github.event.inputs.commit_id }}
 
       - name: Build and Push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         env:
           registry_namespace: dup4
           image_name: domjudge-domserver
@@ -71,7 +80,7 @@ jobs:
         with:
           context: ./docker
           file: ./docker/domserver/Dockerfile
-          platforms: linux/amd64
+          platforms: ${{ github.event.inputs.platforms }}
           push: true
           tags: |
             ${{ env.registry_namespace }}/${{ env.image_name }}:${{ env.tag }}
