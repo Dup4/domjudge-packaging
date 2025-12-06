@@ -10,9 +10,12 @@
         "editor.formatOnSave": true
     },
     "cSpell.words": [
+        "ALIYUN",
+        "aliyuncs",
         "buildx",
         "DOCKERHUB",
         "domjudge",
+        "Domserver",
         "ICPC",
         "judgehost",
         "kotlinc",
