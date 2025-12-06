@@ -5,8 +5,11 @@ set -euo pipefail
 # Usage: https://github.com/DOMjudge/domjudge/blob/main/misc-tools/dj_make_chroot.in#L58-L87
 /opt/domjudge/judgehost/bin/dj_make_chroot \
     -D Ubuntu \
-    -R noble \
-    -i openjdk-21-jdk-headless,openjdk-21-jre-headless
+    -R noble
+
+# Note: default-jdk in noble is already version 21 (https://packages.ubuntu.com/noble/default-jdk),
+# so no need to explicitly install openjdk-21
+# -i openjdk-21-jdk-headless,openjdk-21-jre-headless
 
 # ICPC 2025 requires kotlin compiler
 echo "[..] Installing Kotlin compiler"
