@@ -13,7 +13,9 @@
         "buildx",
         "DOCKERHUB",
         "domjudge",
+        "ICPC",
         "judgehost",
+        "kotlinc",
         "shellcheck"
     ],
 }
