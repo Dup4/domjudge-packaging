@@ -186,7 +186,12 @@ else
 			echo "# The database was not automatically updated to use this judgehost password."
 		} >> etc/restapi.secret
 	fi
-	bin/dj_setup_database -uroot -p"${MYSQL_ROOT_PASSWORD}" upgrade
+
+	if [[ -n "${DISABLE_DB_UPGRADE}" ]]; then
+		echo "DISABLE_DB_UPGRADE=${DISABLE_DB_UPGRADE}, skip db upgrade"
+	else
+		bin/dj_setup_database -uroot -p"${MYSQL_ROOT_PASSWORD}" upgrade
+	fi
 fi
 echo "[ok] Database ready"; echo
 
