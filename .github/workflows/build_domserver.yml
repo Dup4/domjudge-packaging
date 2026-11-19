@@ -82,6 +82,8 @@ jobs:
           file: ./docker/domserver/Dockerfile
           platforms: ${{ github.event.inputs.platforms }}
           push: true
+          provenance: false
+          sbom: false
           tags: |
             ${{ env.registry_namespace }}/${{ env.image_name }}:${{ env.tag }}
             registry.cn-shanghai.aliyuncs.com/${{ env.registry_namespace }}/${{ env.image_name }}:${{ env.tag }}
